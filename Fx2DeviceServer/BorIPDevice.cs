@@ -91,7 +91,18 @@ namespace Fx2DeviceServer
 				if (MAX_RATE_MUL < value) value = MAX_RATE_MUL;
 				_rateMul = value;
 
-				UpdateFPGA();
+				if (avalonPacket != null)
+				{
+					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
+					try
+					{
+						avalonPacket.WritePacket(0x30, (uint)RateMul);
+					}
+					finally
+					{
+						SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 1);
+					}
+				}
 			}
 		}
 
@@ -120,7 +131,22 @@ namespace Fx2DeviceServer
 				if (MAX_FREQ < value) value = MAX_FREQ;
 				_freq = value;
 
-				UpdateFPGA();
+				if (avalonPacket != null)
+				{
+					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
+					try
+					{
+						avalonPacket.WritePacket(0x10, freqToPhaseInc(FPGA_CLOCK, Freq));
+
+						int bank = freqToBank(FPGA_CLOCK, Freq);
+						int swapIQ = bank % 2;
+						avalonPacket.WritePacket(0x20, (uint)swapIQ);
+					}
+					finally
+					{
+						SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 1);
+					}
+				}
 			}
 		}
 
@@ -145,7 +171,18 @@ namespace Fx2DeviceServer
 				if (MAX_GAIN < value) value = MAX_GAIN;
 				_gain = value;
 
-				UpdateFPGA();
+				if (avalonPacket != null)
+				{
+					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
+					try
+					{
+						avalonPacket.WritePacket(0x40, (uint)Gain);
+					}
+					finally
+					{
+						SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 1);
+					}
+				}
 			}
 		}
 
@@ -596,26 +633,6 @@ namespace Fx2DeviceServer
 			sw.WriteLine(s);
 			sw.Flush();
 			Console.WriteLine($"{BORIP_SERVERPORT}: [out] {s}");
-		}
-
-		private void UpdateFPGA()
-		{
-			if (avalonPacket != null)
-			{
-				SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
-				try
-				{
-					avalonPacket.WritePacket(0x10, freqToPhaseInc(FPGA_CLOCK, Freq));
-
-					int bank = freqToBank(FPGA_CLOCK, Freq);
-					int swapIQ = bank % 2;
-					avalonPacket.WritePacket(0x20, (uint)((swapIQ << 9) + (Gain << 4) + RateMul));
-				}
-				finally
-				{
-					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 1);
-				}
-			}
 		}
 
 		private int freqToBank(double clk, double freq)
