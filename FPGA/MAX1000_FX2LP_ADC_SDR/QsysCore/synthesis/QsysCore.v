@@ -8,6 +8,8 @@ module QsysCore (
 		output wire [31:0] pio_0_external_connection_export,                                                                //                       pio_0_external_connection.export
 		output wire [31:0] pio_1_external_connection_export,                                                                //                       pio_1_external_connection.export
 		output wire [31:0] pio_2_external_connection_export,                                                                //                       pio_2_external_connection.export
+		output wire [31:0] pio_3_external_connection_export,                                                                //                       pio_3_external_connection.export
+		output wire [31:0] pio_4_external_connection_export,                                                                //                       pio_4_external_connection.export
 		input  wire        reset_reset_n,                                                                                   //                                           reset.reset_n
 		input  wire        spi_slave_to_avalon_mm_master_bridge_0_export_0_mosi_to_the_spislave_inst_for_spichain,          // spi_slave_to_avalon_mm_master_bridge_0_export_0.mosi_to_the_spislave_inst_for_spichain
 		input  wire        spi_slave_to_avalon_mm_master_bridge_0_export_0_nss_to_the_spislave_inst_for_spichain,           //                                                .nss_to_the_spislave_inst_for_spichain
@@ -38,7 +40,17 @@ module QsysCore (
 	wire   [1:0] mm_interconnect_0_pio_2_s1_address;                                 // mm_interconnect_0:pio_2_s1_address -> pio_2:address
 	wire         mm_interconnect_0_pio_2_s1_write;                                   // mm_interconnect_0:pio_2_s1_write -> pio_2:write_n
 	wire  [31:0] mm_interconnect_0_pio_2_s1_writedata;                               // mm_interconnect_0:pio_2_s1_writedata -> pio_2:writedata
-	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [mm_interconnect_0:spi_slave_to_avalon_mm_master_bridge_0_clk_reset_reset_bridge_in_reset_reset, pio_0:reset_n, pio_1:reset_n, pio_2:reset_n, spi_slave_to_avalon_mm_master_bridge_0:reset_n]
+	wire         mm_interconnect_0_pio_3_s1_chipselect;                              // mm_interconnect_0:pio_3_s1_chipselect -> pio_3:chipselect
+	wire  [31:0] mm_interconnect_0_pio_3_s1_readdata;                                // pio_3:readdata -> mm_interconnect_0:pio_3_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_3_s1_address;                                 // mm_interconnect_0:pio_3_s1_address -> pio_3:address
+	wire         mm_interconnect_0_pio_3_s1_write;                                   // mm_interconnect_0:pio_3_s1_write -> pio_3:write_n
+	wire  [31:0] mm_interconnect_0_pio_3_s1_writedata;                               // mm_interconnect_0:pio_3_s1_writedata -> pio_3:writedata
+	wire         mm_interconnect_0_pio_4_s1_chipselect;                              // mm_interconnect_0:pio_4_s1_chipselect -> pio_4:chipselect
+	wire  [31:0] mm_interconnect_0_pio_4_s1_readdata;                                // pio_4:readdata -> mm_interconnect_0:pio_4_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_4_s1_address;                                 // mm_interconnect_0:pio_4_s1_address -> pio_4:address
+	wire         mm_interconnect_0_pio_4_s1_write;                                   // mm_interconnect_0:pio_4_s1_write -> pio_4:write_n
+	wire  [31:0] mm_interconnect_0_pio_4_s1_writedata;                               // mm_interconnect_0:pio_4_s1_writedata -> pio_4:writedata
+	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [mm_interconnect_0:spi_slave_to_avalon_mm_master_bridge_0_clk_reset_reset_bridge_in_reset_reset, pio_0:reset_n, pio_1:reset_n, pio_2:reset_n, pio_3:reset_n, pio_4:reset_n, spi_slave_to_avalon_mm_master_bridge_0:reset_n]
 
 	QsysCore_pio_0 pio_0 (
 		.clk        (clk_clk),                               //                 clk.clk
@@ -71,6 +83,28 @@ module QsysCore (
 		.chipselect (mm_interconnect_0_pio_2_s1_chipselect), //                    .chipselect
 		.readdata   (mm_interconnect_0_pio_2_s1_readdata),   //                    .readdata
 		.out_port   (pio_2_external_connection_export)       // external_connection.export
+	);
+
+	QsysCore_pio_0 pio_3 (
+		.clk        (clk_clk),                               //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),       //               reset.reset_n
+		.address    (mm_interconnect_0_pio_3_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pio_3_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pio_3_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pio_3_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pio_3_s1_readdata),   //                    .readdata
+		.out_port   (pio_3_external_connection_export)       // external_connection.export
+	);
+
+	QsysCore_pio_0 pio_4 (
+		.clk        (clk_clk),                               //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),       //               reset.reset_n
+		.address    (mm_interconnect_0_pio_4_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pio_4_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pio_4_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pio_4_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pio_4_s1_readdata),   //                    .readdata
+		.out_port   (pio_4_external_connection_export)       // external_connection.export
 	);
 
 	SPISlaveToAvalonMasterBridge #(
@@ -117,7 +151,17 @@ module QsysCore (
 		.pio_2_s1_write                                                               (mm_interconnect_0_pio_2_s1_write),                                   //                                                                       .write
 		.pio_2_s1_readdata                                                            (mm_interconnect_0_pio_2_s1_readdata),                                //                                                                       .readdata
 		.pio_2_s1_writedata                                                           (mm_interconnect_0_pio_2_s1_writedata),                               //                                                                       .writedata
-		.pio_2_s1_chipselect                                                          (mm_interconnect_0_pio_2_s1_chipselect)                               //                                                                       .chipselect
+		.pio_2_s1_chipselect                                                          (mm_interconnect_0_pio_2_s1_chipselect),                              //                                                                       .chipselect
+		.pio_3_s1_address                                                             (mm_interconnect_0_pio_3_s1_address),                                 //                                                               pio_3_s1.address
+		.pio_3_s1_write                                                               (mm_interconnect_0_pio_3_s1_write),                                   //                                                                       .write
+		.pio_3_s1_readdata                                                            (mm_interconnect_0_pio_3_s1_readdata),                                //                                                                       .readdata
+		.pio_3_s1_writedata                                                           (mm_interconnect_0_pio_3_s1_writedata),                               //                                                                       .writedata
+		.pio_3_s1_chipselect                                                          (mm_interconnect_0_pio_3_s1_chipselect),                              //                                                                       .chipselect
+		.pio_4_s1_address                                                             (mm_interconnect_0_pio_4_s1_address),                                 //                                                               pio_4_s1.address
+		.pio_4_s1_write                                                               (mm_interconnect_0_pio_4_s1_write),                                   //                                                                       .write
+		.pio_4_s1_readdata                                                            (mm_interconnect_0_pio_4_s1_readdata),                                //                                                                       .readdata
+		.pio_4_s1_writedata                                                           (mm_interconnect_0_pio_4_s1_writedata),                               //                                                                       .writedata
+		.pio_4_s1_chipselect                                                          (mm_interconnect_0_pio_4_s1_chipselect)                               //                                                                       .chipselect
 	);
 
 	altera_reset_controller #(

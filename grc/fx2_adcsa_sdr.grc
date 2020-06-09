@@ -380,8 +380,9 @@ class blk(gr.basic_block):
         try:
             self._connect()
             self._send_led()
-            self._send_phase_inc()
-            self._send_cic_rate_cic_gain_iq_swap()
+            self._send_frequency()
+            self._send_cic_rate()
+            self._send_cic_gain()
         except:
             pass
 
@@ -412,29 +413,38 @@ class blk(gr.basic_block):
         phaseInc360 = 0x80000000 * 2.0
         return int(phaseInc360 * (self._freq_to_ddc(clk, freq) / clk))
 
-    def _send_phase_inc(self):
+    def _send_frequency(self):
         clk = 48000000
         phaseInc = self._freq_to_phase_inc(clk, self._frequency)
-        try:
-            self._stream.write('*W32:0x%x 0x%x\n' % (0x10, phaseInc))
-            self._stream.flush()
-        except:
-            self._connect()
-            self._stream.write('*W32:0x%x 0x%x\n' % (0x10, phaseInc))
-            self._stream.flush()
-
-    def _send_cic_rate_cic_gain_iq_swap(self):
-        clk = 48000000
         clkDiv2 = clk / 2.0
         bank = np.floor(self._frequency / clkDiv2)
         iq_swap = int(bank % 2)
-        data = (iq_swap &lt;&lt; 9) + (int(self._cic_gain) &lt;&lt; 4) + int(self._cic_rate)
         try:
-            self._stream.write('*W32:0x%x 0x%x\n' % (0x20, data))
+            self._stream.write('*W32:0x%x 0x%x\n' % (0x10, phaseInc))
+            self._stream.write('*W32:0x%x %d\n' % (0x20, iq_swap))
             self._stream.flush()
         except:
             self._connect()
-            self._stream.write('*W32:0x%x 0x%x\n' % (0x20, data))
+            self._stream.write('*W32:0x%x 0x%x\n' % (0x10, phaseInc))
+            self._stream.write('*W32:0x%x %d\n' % (0x20, iq_swap))
+            self._stream.flush()
+
+    def _send_cic_rate(self):
+        try:
+            self._stream.write('*W32:0x%x %d\n' % (0x30, int(self._cic_rate)))
+            self._stream.flush()
+        except:
+            self._connect()
+            self._stream.write('*W32:0x%x %d\n' % (0x30, int(self._cic_rate)))
+            self._stream.flush()
+
+    def _send_cic_gain(self):
+        try:
+            self._stream.write('*W32:0x%x %d\n' % (0x40, int(self._cic_gain)))
+            self._stream.flush()
+        except:
+            self._connect()
+            self._stream.write('*W32:0x%x %d\n' % (0x40, int(self._cic_gain)))
             self._stream.flush()
 
     @property
@@ -453,8 +463,7 @@ class blk(gr.basic_block):
     @frequency.setter
     def frequency(self, frequency):
         self._frequency = frequency
-        self._send_phase_inc()
-        self._send_cic_rate_cic_gain_iq_swap()
+        self._send_frequency()
 
     @property
     def cic_rate(self):
@@ -463,7 +472,7 @@ class blk(gr.basic_block):
     @cic_rate.setter
     def cic_rate(self, cic_rate):
         self._cic_rate = cic_rate
-        self._send_cic_rate_cic_gain_iq_swap()
+        self._send_cic_rate()
 
     @property
     def cic_gain(self):
@@ -472,7 +481,7 @@ class blk(gr.basic_block):
     @cic_gain.setter
     def cic_gain(self, cic_gain):
         self._cic_gain = cic_gain
-        self._send_cic_rate_cic_gain_iq_swap()
+        self._send_cic_gain()
 </value>
     </param>
     <param>

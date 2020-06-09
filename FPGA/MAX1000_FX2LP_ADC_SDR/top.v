@@ -29,6 +29,8 @@ module top
 	wire [31:0] pio0;
 	wire [31:0] pio1;
 	wire [31:0] pio2;
+	wire [31:0] pio3;
+	wire [31:0] pio4;
 	
 	pll	pll_inst (
 		.inclk0 (CLK),
@@ -44,7 +46,9 @@ module top
 		.spi_slave_to_avalon_mm_master_bridge_0_export_0_sclk_to_the_spislave_inst_for_spichain          (SPI_SCLK),
 		.pio_0_external_connection_export                                                                (pio0),
 		.pio_1_external_connection_export                                                                (pio1),
-		.pio_2_external_connection_export                                                                (pio2)
+		.pio_2_external_connection_export                                                                (pio2),
+		.pio_3_external_connection_export                                                                (pio3),
+		.pio_4_external_connection_export                                                                (pio4)
 	);
 	
 	assign LED = pio0[7:0];
@@ -100,8 +104,8 @@ module top
 	wire signed [CIC_WIDTH-1:0] qcic;
 	wire icic_valid;
 	
-	assign cic_rate_div = pio2[3:0]; // 0:37.5k, 1:75k, 2:150k, 3:300k, 4:600k, 5:1.2M
-	assign cic_out_gain = pio2[8:4];
+	assign cic_rate_div = pio3[3:0]; // 0:37.5k, 1:75k, 2:150k, 3:300k, 4:600k, 5:1.2M
+	assign cic_out_gain = pio4[4:0];
 	
 	MyCIC #(
 		.NUM_STAGES(CIC_NUM_STAGES),
@@ -199,7 +203,7 @@ module top
 	reg [2:0] cur;
 	reg [7:0] fd_r;
 	
-	assign iq_swap = pio2[9];
+	assign iq_swap = pio2[0];
 	assign fifo_data = iq_swap ? { ifir, qfir } : { qfir, ifir };
 	assign fifo_valid = ifir_valid;
 	

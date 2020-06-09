@@ -3,20 +3,24 @@ module QsysCore (
 	clk_clk,
 	pio_0_external_connection_export,
 	pio_1_external_connection_export,
+	pio_2_external_connection_export,
 	reset_reset_n,
 	spi_slave_to_avalon_mm_master_bridge_0_export_0_mosi_to_the_spislave_inst_for_spichain,
 	spi_slave_to_avalon_mm_master_bridge_0_export_0_nss_to_the_spislave_inst_for_spichain,
 	spi_slave_to_avalon_mm_master_bridge_0_export_0_miso_to_and_from_the_spislave_inst_for_spichain,
 	spi_slave_to_avalon_mm_master_bridge_0_export_0_sclk_to_the_spislave_inst_for_spichain,
-	pio_2_external_connection_export);	
+	pio_3_external_connection_export,
+	pio_4_external_connection_export);	
 
 	input		clk_clk;
 	output	[31:0]	pio_0_external_connection_export;
 	output	[31:0]	pio_1_external_connection_export;
+	output	[31:0]	pio_2_external_connection_export;
 	input		reset_reset_n;
 	input		spi_slave_to_avalon_mm_master_bridge_0_export_0_mosi_to_the_spislave_inst_for_spichain;
 	input		spi_slave_to_avalon_mm_master_bridge_0_export_0_nss_to_the_spislave_inst_for_spichain;
 	inout		spi_slave_to_avalon_mm_master_bridge_0_export_0_miso_to_and_from_the_spislave_inst_for_spichain;
 	input		spi_slave_to_avalon_mm_master_bridge_0_export_0_sclk_to_the_spislave_inst_for_spichain;
-	output	[31:0]	pio_2_external_connection_export;
+	output	[31:0]	pio_3_external_connection_export;
+	output	[31:0]	pio_4_external_connection_export;
 endmodule

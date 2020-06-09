@@ -10,6 +10,10 @@ Progress: Adding pio_1 [altera_avalon_pio 18.1]
 Progress: Parameterizing module pio_1
 Progress: Adding pio_2 [altera_avalon_pio 18.1]
 Progress: Parameterizing module pio_2
+Progress: Adding pio_3 [altera_avalon_pio 18.1]
+Progress: Parameterizing module pio_3
+Progress: Adding pio_4 [altera_avalon_pio 18.1]
+Progress: Parameterizing module pio_4
 Progress: Adding spi_slave_to_avalon_mm_master_bridge_0 [spi_slave_to_avalon_mm_master_bridge 18.1]
 Progress: Parameterizing module spi_slave_to_avalon_mm_master_bridge_0
 Progress: Building connections
@@ -31,6 +35,10 @@ Progress: Adding pio_1 [altera_avalon_pio 18.1]
 Progress: Parameterizing module pio_1
 Progress: Adding pio_2 [altera_avalon_pio 18.1]
 Progress: Parameterizing module pio_2
+Progress: Adding pio_3 [altera_avalon_pio 18.1]
+Progress: Parameterizing module pio_3
+Progress: Adding pio_4 [altera_avalon_pio 18.1]
+Progress: Parameterizing module pio_4
 Progress: Adding spi_slave_to_avalon_mm_master_bridge_0 [spi_slave_to_avalon_mm_master_bridge 18.1]
 Progress: Parameterizing module spi_slave_to_avalon_mm_master_bridge_0
 Progress: Building connections
@@ -39,13 +47,15 @@ Progress: Validating
 Progress: Done reading input file
 Info: QsysCore: Generating QsysCore "QsysCore" for QUARTUS_SYNTH
 Info: pio_0: Starting RTL generation for module 'QsysCore_pio_0'
-Info: pio_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=QsysCore_pio_0 --dir=C:/Users/zaurus/AppData/Local/Temp/alt8420_1639344697569891334.dir/0006_pio_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/zaurus/AppData/Local/Temp/alt8420_1639344697569891334.dir/0006_pio_0_gen//QsysCore_pio_0_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=QsysCore_pio_0 --dir=C:/Users/zaurus/AppData/Local/Temp/alt8420_1461562462484621740.dir/0006_pio_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/zaurus/AppData/Local/Temp/alt8420_1461562462484621740.dir/0006_pio_0_gen//QsysCore_pio_0_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_0: Done RTL generation for module 'QsysCore_pio_0'
 Info: pio_0: "QsysCore" instantiated altera_avalon_pio "pio_0"
 Info: spi_slave_to_avalon_mm_master_bridge_0: "QsysCore" instantiated spi_slave_to_avalon_mm_master_bridge "spi_slave_to_avalon_mm_master_bridge_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "QsysCore" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: rst_controller: "QsysCore" instantiated altera_reset_controller "rst_controller"
 Info: spi_slave_to_avalon_mm_master_bridge_0_avalon_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "spi_slave_to_avalon_mm_master_bridge_0_avalon_master_translator"
