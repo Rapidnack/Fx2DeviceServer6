@@ -465,8 +465,18 @@ namespace Fx2DeviceServer
 			if (str.StartsWith("DEVICE -", StringComparison.CurrentCultureIgnoreCase) ||
 				str.StartsWith("DEVICE 0", StringComparison.CurrentCultureIgnoreCase))
 			{
+				// <DEVICE NAME>
+				//	|<MIN GAIN>
+				//	|<MAX GAIN>
+				//	|<GAIN STEP>
+				//	|<FPGA FREQ IN HZ>
+				//	|<COMPLEX SAMPLE PAIRS PER PACKET>
+				//	|<CSV LIST OF VALID ANTENNAS>
+				//	[|<DEVICE SERIAL NUMBER>]
 				string s = $"DEVICE FX2" +
-					$"|{MIN_GAIN}.000|{MAX_GAIN}.000|1.000" +
+					$"|{MIN_GAIN}.000" +
+					$"|{MAX_GAIN}.000" +
+					$"|1.000" +
 					$"|{MIN_RATE << MAX_RATE_MUL}.000" +
 					$"|{NUM_SAMPLES}" +
 					$"|RX" +
