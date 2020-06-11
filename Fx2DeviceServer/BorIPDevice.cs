@@ -96,7 +96,10 @@ namespace Fx2DeviceServer
 					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
 					try
 					{
-						avalonPacket.WritePacket(0x30, (uint)RateMul);
+						uint addr = 0x30;
+						uint data = (uint)RateMul;
+						//Console.WriteLine($"WritePacket(0x{addr:x}, 0x{data:x})");
+						avalonPacket.WritePacket(addr, data);
 					}
 					finally
 					{
@@ -136,25 +139,23 @@ namespace Fx2DeviceServer
 					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
 					try
 					{
-						avalonPacket.WritePacket(0x10, freqToPhaseInc(FPGA_CLOCK, Freq));
+						uint addr = 0x10;
+						uint data = freqToPhaseInc(FPGA_CLOCK, Freq);
+						//Console.WriteLine($"WritePacket(0x{addr:x}, 0x{data:x})");
+						avalonPacket.WritePacket(addr, data);
 
 						int bank = freqToBank(FPGA_CLOCK, Freq);
-						int swapIQ = bank % 2;
-						avalonPacket.WritePacket(0x20, (uint)swapIQ);
+						uint swapIQ = (uint)(bank % 2);
+						addr = 0x20;
+						data = swapIQ;
+						//Console.WriteLine($"WritePacket(0x{addr:x}, 0x{data:x})");
+						avalonPacket.WritePacket(addr, data);
 					}
 					finally
 					{
 						SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 1);
 					}
 				}
-			}
-		}
-
-		private int DDC
-		{
-			get
-			{
-				return (int)freqToDDC(FPGA_CLOCK, Freq);
 			}
 		}
 
@@ -176,7 +177,10 @@ namespace Fx2DeviceServer
 					SendVendorRequest((byte)EVendorRequests.SetSpiCs, null, 0);
 					try
 					{
-						avalonPacket.WritePacket(0x40, (uint)Gain);
+						uint addr = 0x40;
+						uint data = (uint)Gain;
+						//Console.WriteLine($"WritePacket(0x{addr:x}, 0x{data:x})");
+						avalonPacket.WritePacket(addr, data);
 					}
 					finally
 					{
@@ -524,7 +528,7 @@ namespace Fx2DeviceServer
 					if (value < MIN_FREQ) ret = "LOW";
 					if (MAX_FREQ < value) ret = "HIGH";
 
-					BorIPWriteLine(sw, $"FREQ {ret} 0.000 0.000 {DDC}.000 {DDC}.000");
+					BorIPWriteLine(sw, $"FREQ {ret} {Freq}.000 {Freq}.000 0.000 0.000");
 				}
 				else
 				{
