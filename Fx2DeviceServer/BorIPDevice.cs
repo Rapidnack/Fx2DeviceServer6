@@ -384,6 +384,12 @@ namespace Fx2DeviceServer
 										}
 									}
 
+									sequence++;
+									if (sequence == 0x10000)
+									{
+										sequence = 0;
+									}
+
 									borIPData = null;
 									borIPDataPos = 0;
 								}
