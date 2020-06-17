@@ -71,6 +71,7 @@ namespace Fx2DeviceServer
 		private const int DEFAULT_DESTPORT = 28888;
 		private const int BORIP_SERVERPORT = 28888;
 
+		private static Dictionary<ushort, TcpListener> listenerDict = new Dictionary<ushort, TcpListener>();
 		private ushort dataPortNo = 0; // port number of ADCDevice
 		private CyBulkEndPoint endpoint2 = null;
 
@@ -215,7 +216,7 @@ namespace Fx2DeviceServer
 
 			Task.Run(() =>
 			{
-				TcpListener listener = CreateListener(BORIP_SERVERPORT);
+				TcpListener listener = BorIPCreateListener(BORIP_SERVERPORT);
 				try
 				{
 					listener.Start();
@@ -677,6 +678,20 @@ namespace Fx2DeviceServer
 			double phaseInc360 = (double)0x80000000UL * 2; // 32 bits full scale
 
 			return (uint)(phaseInc360 * (freqToDDC(clk, freq) / clk));
+		}
+
+		protected static TcpListener BorIPCreateListener(ushort port)
+		{
+			if (listenerDict.ContainsKey(port))
+			{
+				TcpListener oldListener = listenerDict[port];
+				oldListener.Stop();
+				listenerDict.Remove(port);
+			}
+			TcpListener newListener = new TcpListener(IPAddress.Any, port);
+			listenerDict.Add(port, newListener);
+
+			return newListener;
 		}
 	}
 }
