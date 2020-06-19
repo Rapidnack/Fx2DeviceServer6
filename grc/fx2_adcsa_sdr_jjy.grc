@@ -90,6 +90,69 @@
     </param>
   </block>
   <block>
+    <key>variable_qtgui_range</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>12</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(256, 12)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>cic_gain</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>CIC GAIN</value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>16</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>int</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -167,7 +230,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 12)</value>
+      <value>(488, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -206,7 +269,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(720, 12)</value>
+      <value>(784, 12)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -249,7 +312,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(584, 12)</value>
+      <value>(648, 12)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -504,7 +567,7 @@
     </param>
     <param>
       <key>cic_gain</key>
-      <value>12</value>
+      <value>16</value>
     </param>
     <param>
       <key>cic_rate</key>
@@ -654,7 +717,7 @@ class blk(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(256, 12)</value>
+      <value>(360, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -687,6 +750,7 @@ class blk(gr.basic_block):
       <key>_source_code</key>
       <value>import numpy as np
 from gnuradio import gr
+import sys
 
 class blk(gr.sync_block):
     """Embedded Python Block example - JJY Decoder"""
@@ -701,8 +765,8 @@ class blk(gr.sync_block):
         self.sample_rate = int(sample_rate)
 
         self._level_count = 0
-        self._min = 1.0
-        self._max = 0.0
+        self._min = sys.float_info.max
+        self._max = sys.float_info.min
         self._minimum = None
         self._threshold = None
         self._maximum = None
@@ -778,14 +842,13 @@ class blk(gr.sync_block):
         self._max = max(self._max, np.max(input_items[0]))
         self._level_count += len(input_items[0])
         if self._level_count &gt;= self.sample_rate * 4:
-            if self._maximum &lt; 1.0:
-                self._minimum = self._min
-                self._threshold = (self._min + self._max) / 2
-                self._maximum = self._max
-                #print self._minimum, self._threshold, self._maximum
+            self._minimum = self._min
+            self._threshold = (self._min + self._max) / 2
+            self._maximum = self._max
+            #print self._minimum, self._threshold, self._maximum
             self._level_count = 0
-            self._min = 1.0
-            self._max = 0.0
+            self._min = sys.float_info.max
+            self._max = sys.float_info.min
         if self._threshold == None:
             return len(input_items[0])
 
