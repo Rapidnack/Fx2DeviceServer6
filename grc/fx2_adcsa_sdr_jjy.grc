@@ -766,7 +766,7 @@ class blk(gr.sync_block):
 
         self._level_count = 0
         self._min = sys.float_info.max
-        self._max = sys.float_info.min
+        self._max = 0
         self._minimum = None
         self._threshold = None
         self._maximum = None
@@ -848,7 +848,7 @@ class blk(gr.sync_block):
             #print self._minimum, self._threshold, self._maximum
             self._level_count = 0
             self._min = sys.float_info.max
-            self._max = sys.float_info.min
+            self._max = 0
         if self._threshold == None:
             return len(input_items[0])
 
