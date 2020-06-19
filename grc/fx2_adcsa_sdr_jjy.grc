@@ -567,7 +567,7 @@
     </param>
     <param>
       <key>cic_gain</key>
-      <value>16</value>
+      <value>cic_gain</value>
     </param>
     <param>
       <key>cic_rate</key>
