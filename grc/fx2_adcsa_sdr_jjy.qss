@@ -1,0 +1,10 @@
+#variable_fx2_gui_label_0 {
+    color: white;
+    background-color: blue;
+    font-size: 100px;
+}
+
+#variable_fx2_gui_label_0_label {
+    color: white;
+    font-size: 50px;
+}
