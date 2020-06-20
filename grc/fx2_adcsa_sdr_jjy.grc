@@ -895,11 +895,15 @@ class blk(gr.sync_block):
         if self._rise_count != None:
             p1 = self._rise_count - self._count
             p2 = self._rise_count + self.sample_rate - self._count
-            if 0 &lt;= p1 and p2 &lt; len(input_items[0]):
-                self._sum += np.sum(input_items[0][p1:p2])
-            elif p2 &gt;= len(input_items[0]):
+
+            # [0]  p1  [-1]  p2
+            if 0 &lt;= p1 and len(input_items[0]) &lt;= p2:
                 self._sum += np.sum(input_items[0][p1:])
-            else:
+            # p1  [0]  [-1]  p2
+            elif p1 &lt; 0 and len(input_items[0]) &lt;= p2:
+                self._sum += np.sum(input_items[0][:])
+            # p1  [0]  p2  [-1]
+            elif p1 &lt; 0 and p2 &lt; len(input_items[0]):
                 self._sum += np.sum(input_items[0][:p2])
 
             if 0 &lt;= p2 and p2 &lt; len(input_items[0]):
@@ -910,8 +914,10 @@ class blk(gr.sync_block):
                     average = self._sum / self.sample_rate
                     ratio = (average - self._minimum) / (self._maximum - self._minimum)
                     bit = 'P'
-                    if ratio &gt; 0.6: bit = '0'
-                    elif ratio &gt; 0.35: bit = '1'
+                    if ratio &gt; 0.6:
+                       bit = '0'
+                    elif ratio &gt; 0.35:
+                       bit = '1'
                 if len(self._bits) &gt; 0 and self._bits[-1] == 'P' and bit == 'P':
                     if len(self._bits) != 60:
                         self._minute, self._next_minute = '--:--', '--:--'
