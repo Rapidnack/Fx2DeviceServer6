@@ -54,7 +54,7 @@
     </param>
     <param>
       <key>qt_qss_theme</key>
-      <value>C:\Users\zaurus\Documents\fx2_adcsa_sdr_jjy.qss</value>
+      <value></value>
     </param>
     <param>
       <key>realtime_scheduling</key>
@@ -82,7 +82,7 @@
     </param>
     <param>
       <key>title</key>
-      <value></value>
+      <value>JJY Clock</value>
     </param>
     <param>
       <key>placement</key>
@@ -90,26 +90,18 @@
     </param>
   </block>
   <block>
-    <key>variable_qtgui_range</key>
+    <key>variable</key>
     <param>
       <key>comment</key>
       <value></value>
     </param>
     <param>
-      <key>value</key>
-      <value>12</value>
-    </param>
-    <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
       <value>(256, 12)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
     </param>
     <param>
       <key>_rotation</key>
@@ -120,36 +112,8 @@
       <value>cic_gain</value>
     </param>
     <param>
-      <key>label</key>
-      <value>CIC GAIN</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>16</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>int</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>counter_slider</value>
+      <key>value</key>
+      <value>12</value>
     </param>
   </block>
   <block>
@@ -191,7 +155,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 84)</value>
+      <value>(8, 108)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -226,11 +190,11 @@
     </param>
     <param>
       <key>function_name</key>
-      <value>get_time</value>
+      <value>get_decode</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(488, 12)</value>
+      <value>(472, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -238,7 +202,50 @@
     </param>
     <param>
       <key>id</key>
-      <value>variable_function_probe_0</value>
+      <value>variable_function_probe_decode</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>''</value>
+    </param>
+    <param>
+      <key>poll_rate</key>
+      <value>10</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_function_probe</key>
+    <param>
+      <key>block_id</key>
+      <value>epy_block_1</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>function_args</key>
+      <value></value>
+    </param>
+    <param>
+      <key>function_name</key>
+      <value>get_time</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(648, 12)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>variable_function_probe_time</value>
     </param>
     <param>
       <key>value</key>
@@ -257,7 +264,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>variable_function_probe_0</value>
+      <value>variable_function_probe_time</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -269,7 +276,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(784, 12)</value>
+      <value>(648, 108)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -281,7 +288,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>variable_fx2_gui_label_0</value>
+      <value>variable_fx2_gui_label_time</value>
     </param>
     <param>
       <key>label</key>
@@ -300,7 +307,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>variable_function_probe_0</value>
+      <value>variable_function_probe_decode</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -312,7 +319,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(648, 12)</value>
+      <value>(472, 108)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -324,11 +331,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>variable_qtgui_label_0</value>
+      <value>variable_qtgui_label_decode</value>
     </param>
     <param>
       <key>label</key>
-      <value>TIME</value>
+      <value>DECODE</value>
     </param>
     <param>
       <key>type</key>
@@ -418,7 +425,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(464, 264)</value>
+      <value>(472, 296)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -461,7 +468,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(304, 244)</value>
+      <value>(312, 276)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -477,7 +484,7 @@
     </param>
     <param>
       <key>length</key>
-      <value>samp_rate / 5</value>
+      <value>samp_rate / 10</value>
     </param>
     <param>
       <key>max_iter</key>
@@ -520,7 +527,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(192, 248)</value>
+      <value>(200, 280)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -717,7 +724,7 @@ class blk(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(360, 12)</value>
+      <value>(336, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -777,33 +784,56 @@ class blk(gr.sync_block):
         self._rise_count = None
         self._next_rise_count = None
 
-        self._sum = 0
-        self._bits = []
+        self._minute_sum = 0
+        self._minute_min = sys.float_info.max
+        self._minute_max = 0
         self._minute_count = None
-        self._next_minute = '--:--'
-        self._minute = '--:--'
+        self._bits = []
+        self._decode_hhmm = '--:--'
+        self._hhmm = '--:--'
+        self._next_hhmm = '--:--'
 
-    def _convert_to_minute(self):
-        if len(self._bits) &lt; 19 or self._bits[0] != 'M' or self._bits.count('X') &gt; 0:
-            return self._minute, '--:--'
-        m = 0
-        if self._bits[1] == '1': m += 40
-        if self._bits[2] == '1': m += 20
-        if self._bits[3] == '1': m += 10
-        if self._bits[5] == '1': m += 8
-        if self._bits[6] == '1': m += 4
-        if self._bits[7] == '1': m += 2
-        if self._bits[8] == '1': m += 1
-        h = 0
-        if self._bits[12] == '1': h += 20
-        if self._bits[13] == '1': h += 10
-        if self._bits[15] == '1': h += 8
-        if self._bits[16] == '1': h += 4
-        if self._bits[17] == '1': h += 2
-        if self._bits[18] == '1': h += 1
-        if m &gt; 60 or h &gt; 23:
-            return '--:--', '--:--'
-        # next minute
+    def _get_hhmm(self):
+        if len(self._bits) &lt; 38 or self._bits[0] != 'M':
+            return '--:--'
+        if self._bits[1:9].count('X') &gt; 0 or self._bits[37] == 'X':
+            return '--:--'
+        if self._bits[1:9].count('P') &gt; 0 or self._bits[37] == 'P':
+            return '--:--'
+        if self._bits[12:19].count('X') &gt; 0 or self._bits[36] == 'X':
+            return '--:--'
+        if self._bits[12:19].count('P') &gt; 0 or self._bits[36] == 'P':
+            return '--:--'
+        p = 0; m = 0
+        if self._bits[1] == '1': p += 1; m += 40
+        if self._bits[2] == '1': p += 1; m += 20
+        if self._bits[3] == '1': p += 1; m += 10
+        if self._bits[5] == '1': p += 1; m += 8
+        if self._bits[6] == '1': p += 1; m += 4
+        if self._bits[7] == '1': p += 1; m += 2
+        if self._bits[8] == '1': p += 1; m += 1
+        if self._bits[37] == '1': p += 1
+        if (p % 2) != 0 or m &gt; 59:
+            return '--:--'
+        p = 0; h = 0
+        if self._bits[12] == '1': p += 1; h += 20
+        if self._bits[13] == '1': p += 1; h += 10
+        if self._bits[15] == '1': p += 1; h += 8
+        if self._bits[16] == '1': p += 1; h += 4
+        if self._bits[17] == '1': p += 1; h += 2
+        if self._bits[18] == '1': p += 1; h += 1
+        if self._bits[36] == '1': p += 1
+        if (p % 2) != 0 or h &gt; 23:
+            return '--:--'
+        s = '%02d:%02d' % (h, m)
+        print '(%s)' % s,
+        return s
+
+    def _get_next_hhmm(self):
+        if self._hhmm.count('-') &gt; 0:
+            return '--:--'
+        h = int(self._hhmm[:2])
+        m = int(self._hhmm[3:])
         if m &lt; 59:
             m1 = m + 1
             h1 = h
@@ -813,7 +843,7 @@ class blk(gr.sync_block):
                 h1 = h + 1
             else:
                 h1 = 0
-        return '%02d:%02d' % (h, m), '%02d:%02d' % (h1, m1)
+        return '%02d:%02d' % (h1, m1)
 
     def _get_second(self):
         if self._minute_count == None:
@@ -821,17 +851,20 @@ class blk(gr.sync_block):
         else:
             return int(round(float(self._count - self._minute_count) / self.sample_rate))
 
+    def get_decode(self):
+        return self._decode_hhmm
+
     def get_time(self):
-        if self._minute == '--:--':
+        if self._hhmm == '--:--':
             return '--:--:--'
         second = '--'
-        if self._minute_count != None:
-            sec = self._get_second()
+        sec = self._get_second()
+        if sec &gt;= 0:
             if sec &gt;= 60:
-                self._minute = self._next_minute
+                self._hhmm = self._next_hhmm
                 sec -= 60
             second = '%02d' % sec
-        return '%s:%s' % (self._minute, second)
+        return '%s:%s' % (self._hhmm, second)
 
     def work(self, input_items, output_items):
 
@@ -896,31 +929,36 @@ class blk(gr.sync_block):
             p1 = self._rise_count - self._count
             p2 = self._rise_count + self.sample_rate - self._count
 
-            # [0]  p1  [-1]  p2
-            if 0 &lt;= p1 and len(input_items[0]) &lt;= p2:
-                self._sum += np.sum(input_items[0][p1:])
             # p1  [0]  [-1]  p2
-            elif p1 &lt; 0 and len(input_items[0]) &lt;= p2:
-                self._sum += np.sum(input_items[0][:])
+            if p1 &lt;= 0 and len(input_items[0]) &lt;= p2:
+                self._minute_sum += np.sum(input_items[0][:])
+                self._minute_min = min(self._minute_min, np.min(input_items[0][:]))
+                self._minute_max = max(self._minute_max, np.max(input_items[0][:]))
+            # [0]  p1  [-1]  p2
+            elif 0 &lt; p1 and p1 &lt; len(input_items[0]) and len(input_items[0]) &lt;= p2:
+                self._minute_sum += np.sum(input_items[0][p1:])
+                self._minute_min = min(self._minute_min, np.min(input_items[0][p1:]))
+                self._minute_max = max(self._minute_max, np.max(input_items[0][p1:]))
             # p1  [0]  p2  [-1]
-            elif p1 &lt; 0 and p2 &lt; len(input_items[0]):
-                self._sum += np.sum(input_items[0][:p2])
+            elif p1 &lt;= 0 and 0 &lt; p2 and p2 &lt; len(input_items[0]):
+                self._minute_sum += np.sum(input_items[0][:p2])
+                self._minute_min = min(self._minute_min, np.min(input_items[0][:p2]))
+                self._minute_max = max(self._minute_max, np.max(input_items[0][:p2]))
 
             if 0 &lt;= p2 and p2 &lt; len(input_items[0]):
                 bit = '-'
-                if (self._minute[-2:] in ('15', '45')) and 40 &lt;= len(self._bits) and len(self._bits) &lt;= 55:
+                if (self._hhmm[-2:] in ('15', '45')) and 40 &lt;= len(self._bits) and len(self._bits) &lt;= 55:
                     pass
                 else:
-                    average = self._sum / self.sample_rate
-                    ratio = (average - self._minimum) / (self._maximum - self._minimum)
+                    average = self._minute_sum / self.sample_rate
+                    ratio = (average - self._minute_min) / (self._minute_max - self._minute_min)
                     bit = 'P'
                     if ratio &gt; 0.6:
                        bit = '0'
                     elif ratio &gt; 0.35:
                        bit = '1'
-                if len(self._bits) &gt; 0 and self._bits[-1] == 'P' and bit == 'P':
-                    if len(self._bits) != 60:
-                        self._minute, self._next_minute = '--:--', '--:--'
+                if (len(self._bits) &gt; 0 and self._bits[-1] == 'P' and bit == 'P') or len(self._bits) == 60:
+                    self._hhmm = self._next_hhmm
                     self._minute_count = self._rise_count
                     self._bits = []
                     bit = 'M'
@@ -928,14 +966,18 @@ class blk(gr.sync_block):
                     print
                 print bit,
                 self._bits.append(bit)
-                if len(self._bits) == 19:
-                    self._minute, self._next_minute = self._convert_to_minute()
-                    if self._minute != '--:--':
-                        print '(%s)' % self._minute,
+                if len(self._bits) == 38:
+                    self._decode_hhmm = self._get_hhmm()
+                    if self._decode_hhmm != '--:--':
+                        self._hhmm = self._decode_hhmm
+                    next_hhmm = self._get_next_hhmm()
+                    if next_hhmm != '--:--':
+                        self._next_hhmm = next_hhmm
 
                 self._rise_count = self._count + p2
-                self._sum = 0
-
+                self._minute_sum = 0
+                self._minute_min = sys.float_info.max
+                self._minute_max = 0
 
         self._count += len(input_items[0])
 
@@ -952,7 +994,7 @@ class blk(gr.sync_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(632, 260)</value>
+      <value>(640, 292)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -987,7 +1029,7 @@ class blk(gr.sync_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 164)</value>
+      <value>(8, 364)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1062,7 +1104,7 @@ class blk(gr.sync_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(184, 156)</value>
+      <value>(184, 356)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1079,6 +1121,604 @@ class blk(gr.sync_block):
     <param>
       <key>id</key>
       <value>qtgui_freq_sink_x_0</value>
+    </param>
+    <param>
+      <key>legend</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alpha1</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color1</key>
+      <value>"blue"</value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha10</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color10</key>
+      <value>"dark blue"</value>
+    </param>
+    <param>
+      <key>label10</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width10</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha2</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color2</key>
+      <value>"red"</value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width2</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha3</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color3</key>
+      <value>"green"</value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width3</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha4</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color4</key>
+      <value>"black"</value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width4</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha5</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color5</key>
+      <value>"cyan"</value>
+    </param>
+    <param>
+      <key>label5</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width5</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha6</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color6</key>
+      <value>"magenta"</value>
+    </param>
+    <param>
+      <key>label6</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width6</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha7</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color7</key>
+      <value>"yellow"</value>
+    </param>
+    <param>
+      <key>label7</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width7</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha8</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color8</key>
+      <value>"dark red"</value>
+    </param>
+    <param>
+      <key>label8</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width8</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha9</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color9</key>
+      <value>"dark green"</value>
+    </param>
+    <param>
+      <key>label9</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width9</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>name</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>nconnections</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>showports</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>freqhalf</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>tr_chan</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>tr_level</key>
+      <value>0.0</value>
+    </param>
+    <param>
+      <key>tr_mode</key>
+      <value>qtgui.TRIG_MODE_FREE</value>
+    </param>
+    <param>
+      <key>tr_tag</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>update_time</key>
+      <value>0.10</value>
+    </param>
+    <param>
+      <key>wintype</key>
+      <value>firdes.WIN_BLACKMAN_hARRIS</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Relative Gain</value>
+    </param>
+    <param>
+      <key>ymax</key>
+      <value>10</value>
+    </param>
+    <param>
+      <key>ymin</key>
+      <value>-140</value>
+    </param>
+    <param>
+      <key>units</key>
+      <value>dB</value>
+    </param>
+  </block>
+  <block>
+    <key>qtgui_freq_sink_x</key>
+    <param>
+      <key>autoscale</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>average</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>axislabels</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>bw</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>fc</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>ctrlpanel</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fftsize</key>
+      <value>1024</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(320, 196)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>grid</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>qtgui_freq_sink_x_0_0</value>
+    </param>
+    <param>
+      <key>legend</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alpha1</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color1</key>
+      <value>"blue"</value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha10</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color10</key>
+      <value>"dark blue"</value>
+    </param>
+    <param>
+      <key>label10</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width10</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha2</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color2</key>
+      <value>"red"</value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width2</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha3</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color3</key>
+      <value>"green"</value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width3</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha4</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color4</key>
+      <value>"black"</value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width4</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha5</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color5</key>
+      <value>"cyan"</value>
+    </param>
+    <param>
+      <key>label5</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width5</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha6</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color6</key>
+      <value>"magenta"</value>
+    </param>
+    <param>
+      <key>label6</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width6</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha7</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color7</key>
+      <value>"yellow"</value>
+    </param>
+    <param>
+      <key>label7</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width7</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha8</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color8</key>
+      <value>"dark red"</value>
+    </param>
+    <param>
+      <key>label8</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width8</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>alpha9</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>color9</key>
+      <value>"dark green"</value>
+    </param>
+    <param>
+      <key>label9</key>
+      <value></value>
+    </param>
+    <param>
+      <key>width9</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>name</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>nconnections</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>showports</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>freqhalf</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>tr_chan</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>tr_level</key>
+      <value>0.0</value>
+    </param>
+    <param>
+      <key>tr_mode</key>
+      <value>qtgui.TRIG_MODE_FREE</value>
+    </param>
+    <param>
+      <key>tr_tag</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>update_time</key>
+      <value>0.10</value>
+    </param>
+    <param>
+      <key>wintype</key>
+      <value>firdes.WIN_BLACKMAN_hARRIS</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Relative Gain</value>
+    </param>
+    <param>
+      <key>ymax</key>
+      <value>10</value>
+    </param>
+    <param>
+      <key>ymin</key>
+      <value>-140</value>
+    </param>
+    <param>
+      <key>units</key>
+      <value>dB</value>
+    </param>
+  </block>
+  <block>
+    <key>qtgui_freq_sink_x</key>
+    <param>
+      <key>autoscale</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>average</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>axislabels</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>bw</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>fc</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>ctrlpanel</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fftsize</key>
+      <value>1024</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(480, 356)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>grid</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>qtgui_freq_sink_x_0_0_0</value>
     </param>
     <param>
       <key>legend</key>
@@ -1349,7 +1989,7 @@ class blk(gr.sync_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(632, 156)</value>
+      <value>(640, 196)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1684,7 +2324,7 @@ class blk(gr.sync_block):
     <source_block_id>analog_sig_source_x_0</source_block_id>
     <sink_block_id>blocks_multiply_xx_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>1</sink_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_complex_to_mag_0</source_block_id>
@@ -1705,8 +2345,20 @@ class blk(gr.sync_block):
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_moving_average_xx_0</source_block_id>
+    <sink_block_id>qtgui_freq_sink_x_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_multiply_xx_0</source_block_id>
     <sink_block_id>blocks_moving_average_xx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_multiply_xx_0</source_block_id>
+    <sink_block_id>qtgui_freq_sink_x_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1714,7 +2366,7 @@ class blk(gr.sync_block):
     <source_block_id>fx2_iq_udp_source_0</source_block_id>
     <sink_block_id>blocks_multiply_xx_0</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>0</sink_key>
+    <sink_key>1</sink_key>
   </connection>
   <connection>
     <source_block_id>fx2_iq_udp_source_0</source_block_id>
