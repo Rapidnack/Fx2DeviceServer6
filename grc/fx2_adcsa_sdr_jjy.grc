@@ -101,33 +101,6 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(256, 12)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>cic_gain</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>12</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
       <value>(184, 12)</value>
     </param>
     <param>
@@ -542,7 +515,7 @@
     </param>
     <param>
       <key>cic_gain</key>
-      <value>cic_gain</value>
+      <value>12</value>
     </param>
     <param>
       <key>cic_rate</key>
@@ -692,7 +665,7 @@ class blk(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(336, 12)</value>
+      <value>(256, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
