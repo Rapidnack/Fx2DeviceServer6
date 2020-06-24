@@ -2,6 +2,7 @@
 using MonoLibUsb;
 using MonoLibUsb.Profile;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -92,6 +93,7 @@ namespace Fx2DeviceServer
 
 								if (outDataPos == outData.Length)
 								{
+									List<string> remoteAddrList = new List<string>();
 									foreach (var client in controlClients.ToArray())
 									{
 										string remoteAddr;
@@ -104,7 +106,11 @@ namespace Fx2DeviceServer
 											continue;
 										}
 
-										udp.Send(outData, outData.Length, remoteAddr, dataPortNo);
+										if (remoteAddrList.Contains(remoteAddr) == false)
+										{
+											remoteAddrList.Add(remoteAddr);
+											udp.Send(outData, outData.Length, remoteAddr, dataPortNo);
+										}
 									}
 
 									if (ControlPortNo == 0)

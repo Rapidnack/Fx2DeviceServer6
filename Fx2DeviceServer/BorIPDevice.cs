@@ -367,6 +367,7 @@ namespace Fx2DeviceServer
 
 								if (borIPDataPos == borIPData.Length)
 								{
+									List<string> remoteAddrList = new List<string>();
 									foreach (var client in borIPClients.ToArray())
 									{
 										if (client.Header)
@@ -381,7 +382,11 @@ namespace Fx2DeviceServer
 												continue;
 											}
 
-											udp.Send(borIPData, borIPData.Length, remoteAddr, client.DestPort);
+											if (remoteAddrList.Contains(remoteAddr) == false)
+											{
+												remoteAddrList.Add(remoteAddr);
+												udp.Send(borIPData, borIPData.Length, remoteAddr, client.DestPort);
+											}
 										}
 									}
 
@@ -397,6 +402,7 @@ namespace Fx2DeviceServer
 
 								if (outDataPos == outData.Length)
 								{
+									List<string> remoteAddrList = new List<string>();
 									foreach (var client in borIPClients.ToArray())
 									{
 										if (client.Header == false)
@@ -411,10 +417,15 @@ namespace Fx2DeviceServer
 												continue;
 											}
 
-											udp.Send(outData, outData.Length, remoteAddr, client.DestPort);
+											if (remoteAddrList.Contains(remoteAddr) == false)
+											{
+												remoteAddrList.Add(remoteAddr);
+												udp.Send(outData, outData.Length, remoteAddr, client.DestPort);
+											}
 										}
 									}
 
+									remoteAddrList.Clear();
 									foreach (var client in controlClients.ToArray())
 									{
 										string remoteAddr;
@@ -427,7 +438,11 @@ namespace Fx2DeviceServer
 											continue;
 										}
 
-										udp.Send(outData, outData.Length, remoteAddr, dataPortNo);
+										if (remoteAddrList.Contains(remoteAddr) == false)
+										{
+											remoteAddrList.Add(remoteAddr);
+											udp.Send(outData, outData.Length, remoteAddr, dataPortNo);
+										}
 									}
 
 									if (ControlPortNo == 0)
