@@ -1,5 +1,5 @@
 Restore Archived Project report for top
-Sun Jun 07 10:39:18 2020
+Sat Jun 27 17:04:33 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Sun Jun 07 10:39:18 2020 ;
+; Restore Archived Project Status ; Successful - Sat Jun 27 17:04:33 2020 ;
 ; Revision Name                   ; top                                   ;
 ; Top-level Entity Name           ; top                                   ;
 ; Family                          ; MAX 10                                ;
@@ -46,7 +46,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored 'C:/intelFPGA_lite/18.1/projects/MAX1000_FX2LP_ADC/top_tmp_archive.qar' into the 'C:/intelFPGA_lite/18.1/projects/MAX1000_FX2LP_ADC_SDR/' directory
+Info: Successfully restored 'C:/intelFPGA_lite/18.1/projects/MAX1000_FX2LP_ADC_SDR_copy/top_tmp_archive.qar' into the 'C:/intelFPGA_lite/18.1/projects/MAX1000_FX2LP_ADC_SDR/' directory
 Info: Generated report 'top.restore.rpt'
 
 
@@ -56,6 +56,10 @@ Info: Generated report 'top.restore.rpt'
 ; File Name                                                                                     ;
 +-----------------------------------------------------------------------------------------------+
 ; qar_info.json                                                                                 ;
+; MyCIC.v                                                                                       ;
+; MyFIR.v                                                                                       ;
+; MyNCO.v                                                                                       ;
+; MyRAM16x256.v                                                                                 ;
 ; QsysCore.qsys                                                                                 ;
 ; QsysCore.sopcinfo                                                                             ;
 ; QsysCore/QsysCore.cmp                                                                         ;
@@ -104,6 +108,15 @@ Info: Generated report 'top.restore.rpt'
 ; pll.v                                                                                         ;
 ; pll_bb.v                                                                                      ;
 ; pll_inst.v                                                                                    ;
+; ram16x64.qip                                                                                  ;
+; ram16x64.v                                                                                    ;
+; ram16x64_bb.v                                                                                 ;
+; ram16x64_inst.v                                                                               ;
+; romsin.mif                                                                                    ;
+; romsin.qip                                                                                    ;
+; romsin.v                                                                                      ;
+; romsin_bb.v                                                                                   ;
+; romsin_inst.v                                                                                 ;
 ; top.qpf                                                                                       ;
 ; top.qsf                                                                                       ;
 ; top.v                                                                                         ;

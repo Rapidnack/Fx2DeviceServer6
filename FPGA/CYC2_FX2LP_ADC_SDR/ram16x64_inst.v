@@ -1,4 +1,4 @@
-ram16x256	ram16x256_inst (
+ram16x64	ram16x64_inst (
 	.clock ( clock_sig ),
 	.data ( data_sig ),
 	.rdaddress ( rdaddress_sig ),
