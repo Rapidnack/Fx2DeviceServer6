@@ -555,7 +555,7 @@ class blk(gr.basic_block):
         print('connecting to %s:%d' % (self._address, self._port))
         self._client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._client.connect((self._address, self._port))
-        self._stream = self._client.makefile()
+        self._stream = self._client.makefile(mode='rw')
 
     def _send_led(self):
         try:
